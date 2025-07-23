@@ -67,12 +67,15 @@ git clone https://github.com/Scott505/desafio_backend_topicos.git
 
 3. **Configurar la base de datos**
 En el archivo src/main/resources/application.properties, asegurate de tener configurados correctamente los datos de conexión a tu base PostgreSQL:
+
+```properties
 spring.datasource.url=jdbc:postgresql://localhost:5432/desafio_backend
 spring.datasource.username=tu_usuario
 spring.datasource.password=tu_contraseña
+```
 
-4. **Ejecutar la aplicacion**
-5. **Crear manualmente el usuario administrador en la base de datos:**  
+5. **Ejecutar la aplicacion**
+6. **Crear manualmente el usuario administrador en la base de datos:**
    La contraseña debe estar hasheada usando **BCrypt**, que es el algoritmo utilizado en este proyecto.  
    Podés generar el hash de tu contraseña con esta herramienta online: [https://bcrypt-generator.com/](https://bcrypt-generator.com/)  
 
@@ -83,16 +86,17 @@ spring.datasource.password=tu_contraseña
    ```sql
    INSERT INTO usuarios (login, contraseña) VALUES ('admin', '$2a$10$Y50UaMFOxteibQEYLrwuHeehHYfcoafCopUazP12.rqB41bsolF5.');
    ```
-6. **Probar login con Postman o Insomnia**
-   Realizá una petición POST a /login con:
+7. **Probar login con Postman o Insomnia**
+
+   Realizá una petición POST a ´/login´ siguiendo con el ejemplo:
 
   ```json
    {
   "login": "admin",
   "contraseña": "123456"
 }
- ```
-   
+```
+
    Recibirás un token JWT para usar en los headers Authorization del resto de los endpoints.
 
 
